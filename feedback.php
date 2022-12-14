@@ -3,8 +3,33 @@
 <?php
   include 'inc/header.php';
 ?>
+
+<?php
+  $feedback = [
+    ['id' => 1,
+    'name' => 'Luz Noceda',
+    'body' => 'Kewl Website! :)',
+    ],
+    ['id' => 2,
+    'name' => 'Hooty da Owl',
+    'body' => 'HOOT *o*',
+    ]
+  ]
+?>
    
-    <h2>Feedback</h2>
+    <h2>Past Feedback</h2>
+
+    <?php if(empty($feedback)): ?>
+      <p class="lead mt3">There is no feedback</p>
+    <?php endif; ?>
+
+    <?php foreach($feedback as $item): ?>
+      <div class="card my-3">
+        <div class="card-body">
+           <?php echo $item['body']; ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
 
     <div class="card my-3">
      <div class="card-body">
